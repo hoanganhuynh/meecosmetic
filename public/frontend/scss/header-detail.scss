@@ -1,0 +1,120 @@
+body{
+    margin: 0;
+}
+.navbar-menu{
+   display: block;
+//    height: 50px;
+    line-height: 50px;
+    width: 100%;
+    // background: #ccc;
+    box-shadow: 0 4px 3px 0 rgba(0, 0, 0, 0.2);
+
+
+&__top{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    .nav-list-logo{
+        margin-left: 25px;
+        // line-height: 25px;
+    }
+    .nav-list-select{
+        .form-group{
+            margin-bottom: 0;
+            display: inline-block;
+            // width: auto;
+            width: 200px;
+            .form-control:focus{
+                box-shadow: none;
+                outline: 0;
+            }
+        }
+    }
+    .nav-list{
+        transition: .4s all ease;
+        a:hover{
+            color: royalblue;
+        }
+        a.active{
+            color: #0288d1;
+            font-weight: 700;
+        }
+
+    }
+    // .nav-list.active{
+    //     color: #0288d1;
+    //     font-weight: 700;
+    //     border-bottom-color: #0288d1;
+    // }
+   
+    
+ li{  
+    
+    margin-right: 10px;
+    list-style-type: none;
+
+a{ 
+    color: black;
+    text-decoration: none;
+    
+}
+ }
+}
+ a#openup{
+    display: none;
+}
+}
+@media screen and (max-width: 778px){
+    .navbar-menu{
+        height: auto;
+    &__top{
+        /* height: auto; */
+        text-indent: 25px;
+        display: none;
+        .nav-list-logo{
+            display: none;
+        }
+    
+ li{
+        border-bottom: 1px solid #ccc;
+        margin: 0;
+        position: relative;
+    }
+}
+  
+    a#openup{
+        position: relative;
+        display: flex;
+        align-items: center;
+        height: 50px;
+        color: red;
+        text-decoration: none;
+        text-indent: 25px;
+        font-weight: bold;
+        margin-left: 25px;
+        // padding: 10px 0;
+    }
+    a#openup:after{
+        content: "|||";
+        position: absolute;
+        transform: rotate(-90deg);
+        top: 15px;
+        right: 10px;
+        color: red;
+        z-index: 999;
+        font-weight: bold;
+        font-size: 25px;
+    }
+}
+}
+
+@media screen and (min-width: 778px){
+    .navbar-menu{
+        a#openup img{
+            display: none;
+        }
+    }
+
+}

@@ -1,0 +1,187 @@
+#wrapper-main{
+    display: flex;
+    padding-left: 0;
+    transition: all 0.5s ease;
+    &-sidebar{
+        position: sticky;
+        left: 0;
+        top: 50px;
+        width: 0;
+        height: 450px;
+        // margin-left: -200px;
+        overflow-y: auto;
+        overflow-x: hidden;
+        background: #fff;
+        transition: all 0.5s ease;
+        padding: 0;
+        &-brand{
+            position: absolute;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            top: 0;
+            width: 200px;
+            text-align: center;
+            padding: 20px 0;
+            margin: 10px;
+            &__img{
+                background: red;
+                border-radius: 5px;
+                font-weight: 600;
+                font-size: 24px;
+                color: black;
+                text-align: center;
+                padding: 5px 0;
+                margin: 10px;
+                #brand__img--r{
+                    background: red;
+                }
+            }
+        }
+        .sidebar-nav{
+            position: absolute;
+            // top: 75px;
+            width: 200px;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            &__item{
+                text-indent: 10px;
+                line-height: 42px;
+               
+                a{
+                    display: block;
+                    text-decoration: none;
+                    color: black;
+                    font-weight: 600;
+                    font-size: 14px;
+                    padding: 0;
+                    i.fa{
+                        font-size: 20px;
+                        width: 50px;
+                    }
+                }
+            
+            }
+            &__item:hover{
+                color: red;
+                text-decoration: none;
+            }
+        }
+
+    }
+    #navbar-wrapper {
+        width: 100%;
+        position: absolute;
+        z-index: 2;
+        .navbar{
+            border-width: 0 0 0 0;
+            background-color: #eee;
+            font-size: 24px;
+            margin-bottom: 0;
+            border-radius: 0;
+        }
+    }
+    #content-wrapper {
+        width: 100%;
+        position: absolute;
+        padding: 15px;
+        top: 100px;
+      }
+}
+@mixin toggles {
+    position: absolute;
+    margin-right: -200px;
+}
+@mixin toggles-ress {
+    position: absolute;
+    margin-right: -200px;
+    position: relative;
+    margin-right: 0;
+}
+@mixin toggles-res {
+    position: absolute;
+    margin-right: -190px;
+    position: relative;
+    margin-right: 0;
+}
+#wrapper-main.toggled #wrapper-main-sidebar {
+    width: 200px;
+  }
+#wrapper-main.toggled {
+    #navbar-wrapper,#content-wrapper {
+    @include toggles;
+    }
+}
+// responsive
+@media (min-width: 992px){
+    #wrapper-main{
+        padding-left: 0; //200px
+        &-sidebar{
+            width: 200px;
+        }
+        #navbar-wrapper {
+            position: relative;
+          }
+        #content-wrapper {
+            position: relative;
+            top: 0;
+          }
+    }
+    #wrapper-main.toggled {
+        padding-left: 0; //60px
+        #wrapper-main-sidebar{
+            width: 60px;
+        }
+        #navbar-wrapper, #content-wrapper{
+            @include toggles-res;
+        }
+
+      }
+}
+@media (min-width: 768px) and (max-width: 991px) {
+    #wrapper-main {
+        padding-left: 0; //60px
+        &-sidebar{
+            width: 60px;
+        }
+        #navbar-wrapper {
+            position: relative;
+          }
+        #content-wrapper {
+            position: relative;
+            top: 0;
+          }
+      }
+      #wrapper-main.toggled {
+        padding-left: 0;
+        #navbar-wrapper, #content-wrapper{
+            @include toggles-ress;
+        }
+
+      }
+}
+
+@media (max-width: 767px) {
+    #wrapper-main {
+        padding-left: 0;
+        &-sidebar{
+            width: 0;
+        }
+        #navbar-wrapper {
+            position: relative;
+          }
+      }
+      #wrapper-main.toggled {
+        padding-left: 0; //200px
+        &-sidebar{
+            width: 200px;
+        }
+        #navbar-wrapper, #content-wrapper{
+            @include toggles-ress;
+        }
+
+      }
+}
+// 
+
